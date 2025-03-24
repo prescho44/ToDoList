@@ -1,14 +1,15 @@
-import { FC } from 'react';
-import Register from './components/auth/Register';
+import SignUp from './components/auth/SignUp';
 import { Route, Routes } from 'react-router';
 import LandingPage from './pages/LandingPage';
+import SignIn from './components/auth/SignIn';
 
-const App: FC = () => {
+const App = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
       </Routes>
     </div>
   );

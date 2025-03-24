@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router';
+import useAuthSession from '../hooks/useAuthSession';
+import LogoutButton from '../components/auth/LogoutButton';
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -12,6 +15,7 @@ const navigation = [
 ];
 
 const LandingPage = () => {
+  const session = useAuthSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -43,19 +47,34 @@ const LandingPage = () => {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-sm/6 font-semibold text-gray-900"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm/6 font-semibold text-gray-900">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-6">
+            {!session ? (
+              <>
+                <Link
+                  to="/sign-in"
+                  className="text-sm/6 font-semibold text-gray-900"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/sign-up"
+                  className="text-sm/6 font-semibold text-gray-900"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <LogoutButton />
+            )}
           </div>
         </nav>
         <Dialog
@@ -97,12 +116,12 @@ const LandingPage = () => {
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="#"
+                  <Link
+                    to="/login"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Log in
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
