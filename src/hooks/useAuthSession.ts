@@ -18,6 +18,7 @@ const useAuthSession = () => {
 
     return () => subscription.unsubscribe();
   }, []);
+  console.log(session);
   return session;
 };
 

@@ -29,7 +29,7 @@ const SignIn = () => {
       );
     } else {
       setSuccessMessage(
-        'Loging in successful!'
+        'Logging in successful!'
       );
     }
     navigate('/');
