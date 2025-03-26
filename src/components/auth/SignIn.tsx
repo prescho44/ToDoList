@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { supabase } from '../../services/supabase';
+import { supabase } from '../../../supabase.config';
 import { useNavigate } from 'react-router';
 import useAuthSession from '../../hooks/useAuthSession';
 
@@ -24,13 +24,9 @@ const SignIn = () => {
     });
 
     if (error) {
-      setErrorMessage(
-        error.message || 'Loging in failed. Please try again.'
-      );
+      setErrorMessage(error.message || 'Loging in failed. Please try again.');
     } else {
-      setSuccessMessage(
-        'Logging in successful!'
-      );
+      setSuccessMessage('Logging in successful!');
     }
     navigate('/');
     setLoading(false);

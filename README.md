@@ -1,54 +1,26 @@
-# React + TypeScript + Vite
+# To-do List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Target of users
 
-Currently, two official plugins are available:
+Normal users, Family, teams etc.
+The Idea is to have calendar that have in concrete day of the month to have list of todos in it. And link that can be generated that will be shareable and give access to todos list of this **Owner/Creator.** And will have roles:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> **Owner/Creator** - Create, Delete, Edit, Duplicate, check, uncheck
+> **User** - check, uncheck, Create, Edit (**only his to-dos**)
+> more roles will be available
 
-## Expanding the ESLint configuration
+## To-dos List Plan
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To-dos to have page that render in more comfortable UI for reading of them.
+Access to this page would be through _Calendar_ that every day of the month, week, day will be button.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Calendar
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Would have appearance of normal modern calendar, will have selectors (DD, MM, YYYY) that work one month before current month and 1-year after current month
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+> **Owner/Creator** - Add, Remove, Edit
+> **User** - See and go to the to-dos for the selected day. only if **Owner/Creator** give access to it.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## ToDoListPlan

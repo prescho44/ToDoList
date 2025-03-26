@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { supabase } from '../../services/supabase';
+import { supabase } from '../../../supabase.config';
 import { useNavigate } from 'react-router';
 
 const SignUp = () => {
@@ -19,9 +19,13 @@ const SignUp = () => {
     const { error } = await supabase.auth.signUp({ email, password });
 
     if (error) {
-      setErrorMessage(error.message || 'Registration failed. Please try again.');
+      setErrorMessage(
+        error.message || 'Registration failed. Please try again.'
+      );
     } else {
-      setSuccessMessage('Registration successful! Please check your email to confirm.');
+      setSuccessMessage(
+        'Registration successful! Please check your email to confirm.'
+      );
     }
     navigate('/');
     setLoading(false);
@@ -39,13 +43,18 @@ const SignUp = () => {
           Create an account
         </h2>
         {errorMessage && <p className="mt-2 text-red-500">{errorMessage}</p>}
-        {successMessage && <p className="mt-2 text-green-500">{successMessage}</p>}
+        {successMessage && (
+          <p className="mt-2 text-green-500">{successMessage}</p>
+        )}
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form onSubmit={signUpNewUser} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-900"
+            >
               Email address
             </label>
             <input
@@ -60,7 +69,10 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-900">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-900"
+            >
               Password
             </label>
             <input
