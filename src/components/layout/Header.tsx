@@ -26,11 +26,13 @@ const Header = () => {
         >
           <div className="flex lg:flex-1">
             <span className="sr-only">Your Company</span>
-            <img
-              alt=""
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
+            <Link to="/">
+              <img
+                alt=""
+                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+                className="h-8 w-auto"
+              />
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button

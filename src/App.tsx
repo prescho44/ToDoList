@@ -5,11 +5,13 @@ import SignIn from "./components/auth/SignIn";
 import Footer from "./components/layout/Footer";
 import NotFound from "./pages/NotFound";
 import Calendar from "./pages/CalendarPage";
+import Header from "./components/layout/Header";
 
 const App = () => {
   return (
     <div className="flex h-screen flex-col">
       <div className="flex-grow">
+        <Header />
         <Routes>
           <Route index element={<LandingPage />} />
           <Route path="/calendar" element={<Calendar />} />
@@ -17,8 +19,8 @@ const App = () => {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };

@@ -1,10 +1,8 @@
 import { Link } from "react-router";
-import Header from "../components/layout/Header";
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 transition-colors duration-200 dark:bg-gray-900 dark:text-white">
-      <Header />
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
