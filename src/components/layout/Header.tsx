@@ -93,6 +93,8 @@ const Header = () => {
                   className="h-8 w-auto"
                 />
               </Link>
+              <ToggleThemeButton />
+
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}

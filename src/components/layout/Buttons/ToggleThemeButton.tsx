@@ -26,7 +26,7 @@ const ToggleThemeButton = () => {
   };
 
   return (
-    <div className="hidden rounded-xl bg-yellow-200 lg:flex lg:gap-x-10 dark:bg-gray-700">
+    <div className="rounded-xl bg-yellow-200 lg:flex lg:gap-x-10 dark:bg-gray-700">
       <button
         onClick={toggleTheme}
         className="rounded-md p-2.5 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
