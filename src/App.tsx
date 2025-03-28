@@ -4,7 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import SignIn from "./components/auth/SignIn";
 import Footer from "./components/layout/Footer";
 import NotFound from "./pages/NotFound";
-import Calendar from "./pages/CalendarPage";
+import CalendarPage from "./pages/CalendarPage";
 import Header from "./components/layout/Header";
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route index element={<LandingPage />} />
-          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/*" element={<NotFound />} />
