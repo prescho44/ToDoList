@@ -49,7 +49,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-sm font-semibold text-gray-900 hover:text-indigo-600 dark:text-gray-100 dark:hover:text-indigo-400"
+                className="relative text-sm font-semibold text-gray-900 hover:text-indigo-600 dark:text-gray-100 dark:hover:text-indigo-400"
               >
                 {item.name}
               </Link>
@@ -105,7 +105,7 @@ const Header = () => {
               </button>
             </div>
             <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-700/10">
+              <div className="-my-6 divide-y divide-gray-600 dark:divide-gray-500">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
                     <Link
@@ -113,7 +113,10 @@ const Header = () => {
                       to={item.href}
                       className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-800"
                     >
-                      {item.name}
+                      <div className="relative justify-self-start">
+                        <span className="absolute top-1/2 left-1/2 size-12 -translate-1/2 [@media(pointer:fine)]:hidden"></span>
+                        {item.name}
+                      </div>
                     </Link>
                   ))}
                 </div>
@@ -122,15 +125,21 @@ const Header = () => {
                     <>
                       <Link
                         to="/sign-in"
-                        className="text-sm font-semibold text-gray-900 hover:text-indigo-600 dark:text-gray-100 dark:hover:text-indigo-400"
+                        className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-800"
                       >
-                        Sign In
+                        <div className="relative justify-self-start">
+                          <span className="absolute top-1/2 left-1/2 size-12 -translate-1/2 [@media(pointer:fine)]:hidden"></span>
+                          Sign In
+                        </div>
                       </Link>
                       <Link
                         to="/sign-up"
-                        className="text-sm font-semibold text-gray-900 hover:text-indigo-600 dark:text-gray-100 dark:hover:text-indigo-400"
+                        className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-800"
                       >
-                        Sign Up
+                        <div className="relative justify-self-start">
+                          <span className="absolute top-1/2 left-1/2 size-12 -translate-1/2 [@media(pointer:fine)]:hidden"></span>
+                          Sign Up
+                        </div>
                       </Link>
                     </>
                   ) : (
