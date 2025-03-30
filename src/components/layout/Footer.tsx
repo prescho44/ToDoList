@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import useAuthSession from "../../hooks/useAuthSession";
-import LogoutButton from "../auth/LogoutButton";
 
 const navigation = [
   { name: "Features", href: "/features" },
@@ -13,7 +12,7 @@ const Footer = () => {
   const session = useAuthSession();
 
   return (
-    <div className="z-0 grid items-center justify-center text-center text-white sm:flex sm:h-31 sm:flex-col lg:h-46 dark:bg-gray-800">
+    <div className="z-0 grid items-center justify-center text-center text-white sm:flex sm:h-31 sm:flex-col lg:h-46 bg-violet-100 dark:bg-gray-800">
       <nav
         aria-label="Global"
         className="grid items-center justify-center p-6 sm:flex sm:justify-between lg:px-8"
@@ -43,7 +42,7 @@ const Footer = () => {
             ))}
           </div>
           <div className="flex flex-1 justify-center gap-x-6">
-            {!session ? (
+            {!session && (
               <div className="grid gap-6 pt-6 sm:flex sm:pt-0 sm:pl-10">
                 <Link
                   to="/sign-in"
@@ -59,10 +58,6 @@ const Footer = () => {
                   <span className="absolute top-1/2 left-1/2 size-12 -translate-1/2 [@media(pointer:fine)]:hidden"></span>
                   Sign Up
                 </Link>
-              </div>
-            ) : (
-              <div className="flex pt-2 sm:pt-0 sm:pl-6">
-                <LogoutButton />
               </div>
             )}
           </div>

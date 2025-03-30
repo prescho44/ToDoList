@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const monthDays: number[] = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
@@ -25,6 +26,7 @@ const months: string[] = [
 const Calendar = () => {
   const date = new Date().getMonth();
   const [month, setMonth] = useState<number>(date);
+  const navigate = useNavigate();
 
   if (month > 11) {
     setMonth(0);
@@ -32,6 +34,10 @@ const Calendar = () => {
   if (month < 0) {
     setMonth(11);
   }
+
+  const handleDate = (day: number) => {
+    navigate(`/calendar/${months[month]}/to-dos/${day}`);
+  };
 
   return (
     <>
@@ -76,8 +82,9 @@ const Calendar = () => {
         <div className="grid grid-cols-7 content-center gap-7 px-3 py-4 break-words sm:gap-10 sm:px-8 dark:text-white">
           {monthDays.map((day, index) => (
             <div
+              onClick={() => handleDate(day)}
               key={index}
-              className="cursor-pointer rounded-lg border-gray-500 bg-cyan-100 text-center sm:h-20 sm:min-w-10 sm:border sm:shadow-md lg:p-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:sm:active:bg-cyan-900 sm:active:bg-cyan-200"
+              className="cursor-pointer rounded-lg border-gray-500 bg-cyan-100 text-center sm:h-20 sm:min-w-10 sm:border sm:shadow-md sm:active:bg-cyan-200 lg:p-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:sm:active:bg-cyan-900"
             >
               <span className="rounded-full text-center active:bg-cyan-100 sm:p-2 sm:active:bg-transparent">
                 {day}
